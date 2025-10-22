@@ -1,204 +1,134 @@
-import Navigation from '@/components/Navigation';
+import Header from '@/components/Header';
 import Icon from '@/components/ui/icon';
 
 const Accommodation = () => {
-  const options = [
+  const accommodations = [
     {
-      title: 'Приют "Белый ключ"',
-      type: 'Гостевой дом',
-      price: 'от 800 ₽/сутки',
-      description:
-        'Уютный приют на территории парка. Есть спальные места, кухня, баня.',
-      features: [
-        'Кровати в общих комнатах',
-        'Кухня с посудой',
-        'Баня',
-        'Электричество',
-      ],
       icon: 'Home',
+      title: 'Приют «Таганай»',
+      description: 'Уютный приют в центральной усадьбе парка с базовыми удобствами',
+      features: ['Койко-места', 'Кухня', 'Баня', 'Электричество'],
+      price: 'от 500₽/сутки'
     },
     {
-      title: 'Кемпинг',
-      type: 'Палаточный лагерь',
-      price: 'от 200 ₽/сутки',
-      description:
-        'Оборудованные места для установки палаток с кострищами и туалетами.',
-      features: [
-        'Место под палатку',
-        'Кострище',
-        'Туалеты',
-        'Питьевая вода',
-      ],
       icon: 'Tent',
+      title: 'Кемпинг',
+      description: 'Оборудованные площадки для установки палаток',
+      features: ['Навесы', 'Костровища', 'Туалеты', 'Вода'],
+      price: 'от 200₽/сутки'
     },
     {
-      title: 'Турбаза "Таганай"',
-      type: 'База отдыха',
-      price: 'от 1500 ₽/сутки',
-      description:
-        'Комфортабельная база с отдельными домиками у входа в парк.',
-      features: [
-        'Отдельные домики',
-        'Душ и туалет',
-        'Электричество и отопление',
-        'Парковка',
-      ],
-      icon: 'Hotel',
+      icon: 'Mountain',
+      title: 'Приют «Белый ключ»',
+      description: 'Горный приют на маршруте к вершинам',
+      features: ['Спальные места', 'Печка', 'Общая кухня'],
+      price: 'от 400₽/сутки'
+    }
+  ];
+
+  const hotels = [
+    {
+      name: 'Гостиница «Таганай»',
+      location: 'г. Златоуст, 5 км от парка',
+      description: 'Комфортабельная гостиница с современными удобствами',
+      rating: 4.5
     },
     {
-      title: 'Гостиницы Златоуста',
-      type: 'Городское размещение',
-      price: 'от 2000 ₽/сутки',
-      description:
-        'Отели и гостиницы в городе Златоуст, в 10 км от парка.',
-      features: [
-        'Комфортабельные номера',
-        'Все удобства',
-        'Wi-Fi',
-        'Питание',
-      ],
-      icon: 'Building',
+      name: 'База отдыха «Уральская»',
+      location: 'пос. Магнитка, 3 км от КПП',
+      description: 'База отдыха с коттеджами и номерами',
+      rating: 4.2
     },
+    {
+      name: 'Гостевой дом «Лесной»',
+      location: 'п. Пушкинский, 7 км от парка',
+      description: 'Уютный гостевой дом в окружении леса',
+      rating: 4.7
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-
-      <div className="pt-24 pb-16 px-4">
+    <div className="min-h-screen">
+      <Header />
+      
+      <section className="pt-32 pb-24 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-4">Где остановиться</h1>
-            <p className="text-xl text-muted-foreground">
-              Варианты размещения для путешественников
-            </p>
-          </div>
-
-          <div className="grid gap-8 mb-12">
-            {options.map((option, index) => (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-colors"
-              >
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Icon name={option.icon} size={32} className="text-primary" />
+          <h1 className="text-5xl font-bold text-center mb-4">Где остановиться</h1>
+          <p className="text-center text-foreground/70 mb-16 max-w-2xl mx-auto text-lg">
+            Варианты размещения на территории парка и в окрестностях
+          </p>
+          
+          <h2 className="text-3xl font-bold mb-8">На территории парка</h2>
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {accommodations.map((place, index) => (
+              <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <Icon name={place.icon as any} size={28} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{place.title}</h3>
+                <p className="text-foreground/70 mb-4">{place.description}</p>
+                
+                <div className="space-y-2 mb-4">
+                  {place.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-sm">
+                      <Icon name="Check" size={16} className="text-primary" />
+                      <span>{feature}</span>
                     </div>
-                  </div>
-
-                  <div className="flex-grow">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
-                      <div>
-                        <h3 className="text-2xl font-bold mb-1">{option.title}</h3>
-                        <p className="text-sm text-muted-foreground">{option.type}</p>
-                      </div>
-                      <div className="text-2xl font-bold text-primary mt-2 md:mt-0">
-                        {option.price}
-                      </div>
-                    </div>
-
-                    <p className="text-muted-foreground mb-4">{option.description}</p>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      {option.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <Icon name="Check" size={18} className="text-accent flex-shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  ))}
+                </div>
+                
+                <div className="pt-4 border-t border-border">
+                  <p className="text-lg font-semibold text-primary">{place.price}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-card border border-border rounded-lg p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-accent/10 rounded-lg">
-                  <Icon name="Lightbulb" size={24} className="text-accent" />
+          <div className="bg-muted rounded-lg p-8 mb-16">
+            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+              <Icon name="Info" size={24} className="text-primary" />
+              Бронирование
+            </h3>
+            <p className="text-foreground/70 mb-4">
+              Для бронирования мест в приютах и на кемпинге необходимо заранее связаться 
+              с администрацией парка. Особенно это важно в летний сезон и в выходные дни.
+            </p>
+            <p className="text-foreground/70">
+              Телефон для бронирования: <span className="font-semibold">+7 (3513) 62-00-00</span>
+            </p>
+          </div>
+
+          <h2 className="text-3xl font-bold mb-8">Гостиницы рядом с парком</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {hotels.map((hotel, index) => (
+              <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-bold">{hotel.name}</h3>
+                  <div className="flex items-center gap-1 bg-primary/10 px-2 py-1 rounded">
+                    <Icon name="Star" size={16} className="text-primary fill-primary" />
+                    <span className="text-sm font-semibold text-primary">{hotel.rating}</span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Советы путешественникам</h3>
+                
+                <div className="flex items-start gap-2 mb-3 text-sm text-foreground/70">
+                  <Icon name="MapPin" size={16} className="mt-0.5 flex-shrink-0" />
+                  <span>{hotel.location}</span>
                 </div>
+                
+                <p className="text-foreground/70">{hotel.description}</p>
               </div>
-
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Бронируйте места заранее в летний сезон
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Берите спальный мешок даже для приютов
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    В приютах может не быть мобильной связи
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Возьмите наличные — карты не везде принимают
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-card border border-border rounded-lg p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-accent/10 rounded-lg">
-                  <Icon name="Backpack" size={24} className="text-accent" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Что взять с собой</h3>
-                </div>
-              </div>
-
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Тёплая одежда (даже летом в горах холодно)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Дождевик и непромокаемая обувь
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Фонарик и запасные батарейки
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Аптечка первой помощи
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Icon name="ChevronRight" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Средства от насекомых
-                  </span>
-                </li>
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      <footer className="bg-foreground text-background py-12 px-4">
+        <div className="container mx-auto max-w-6xl text-center">
+          <p className="text-sm opacity-80">
+            © 2024 Национальный парк Таганай. Все права защищены.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
