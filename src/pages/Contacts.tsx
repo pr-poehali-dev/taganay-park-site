@@ -1,160 +1,156 @@
-import Navigation from '@/components/Navigation';
+import Header from '@/components/Header';
 import Icon from '@/components/ui/icon';
 
 const Contacts = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <div className="min-h-screen">
+      <Header />
+      
+      <section className="pt-32 pb-24 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <h1 className="text-5xl font-bold text-center mb-4">Контакты</h1>
+          <p className="text-center text-foreground/70 mb-16 max-w-2xl mx-auto text-lg">
+            Свяжитесь с нами для получения информации о посещении парка
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-2xl font-bold mb-6">Администрация парка</h2>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Phone" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Телефон</h3>
+                      <p className="text-foreground/70">+7 (3513) 62-00-00</p>
+                      <p className="text-foreground/70">+7 (3513) 62-11-22</p>
+                    </div>
+                  </div>
 
-      <div className="pt-24 pb-16 px-4">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-4">Контакты</h1>
-            <p className="text-xl text-muted-foreground">
-              Свяжитесь с нами для получения информации
-            </p>
-          </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Mail" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Email</h3>
+                      <p className="text-foreground/70">info@taganay.org</p>
+                      <p className="text-foreground/70">tourism@taganay.org</p>
+                    </div>
+                  </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-card rounded-lg p-8 border border-border">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Icon name="MapPin" size={24} className="text-primary" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="MapPin" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Адрес</h3>
+                      <p className="text-foreground/70">
+                        456209, Челябинская область,<br />
+                        г. Златоуст, ул. Шишкина, д. 3а
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Clock" size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Режим работы</h3>
+                      <p className="text-foreground/70">Пн-Пт: 9:00 - 18:00</p>
+                      <p className="text-foreground/70">Сб-Вс: Выходной</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2">Адрес</h3>
-                  <p className="text-muted-foreground">
-                    456043, Челябинская область
-                    <br />
-                    г. Златоуст, ул. Шишкина, д. 3а
+              </div>
+
+              <div className="bg-muted rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4">КПП «Центральная усадьба»</h3>
+                <div className="space-y-2">
+                  <p className="flex items-center gap-2 text-foreground/70">
+                    <Icon name="Phone" size={16} className="text-primary" />
+                    +7 (3513) 67-10-05
                   </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Icon name="Phone" size={24} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2">Телефон</h3>
-                  <p className="text-muted-foreground">+7 (3513) 67-61-77</p>
-                  <p className="text-muted-foreground">+7 (3513) 67-61-66</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Icon name="Mail" size={24} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2">Email</h3>
-                  <p className="text-muted-foreground">taganay@uole.ru</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Icon name="Clock" size={24} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2">Режим работы</h3>
-                  <p className="text-muted-foreground">
-                    Пн-Пт: 9:00 - 18:00
-                    <br />
-                    Сб-Вс: 10:00 - 16:00
+                  <p className="flex items-center gap-2 text-foreground/70">
+                    <Icon name="Clock" size={16} className="text-primary" />
+                    Ежедневно 8:00 - 20:00
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-card rounded-lg p-8 border border-border">
-              <h3 className="text-2xl font-bold mb-6">Напишите нам</h3>
+            <div className="bg-muted rounded-lg p-8">
+              <h2 className="text-2xl font-bold mb-6">Отправить сообщение</h2>
+              
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Имя
-                  </label>
+                  <label className="block text-sm font-medium mb-2">Ваше имя</label>
                   <input
                     type="text"
-                    id="name"
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="Ваше имя"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Иван Иванов"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email
-                  </label>
+                  <label className="block text-sm font-medium mb-2">Email</label>
                   <input
                     type="email"
-                    id="email"
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="example@mail.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Сообщение
-                  </label>
+                  <label className="block text-sm font-medium mb-2">Телефон</label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="+7 (___) ___-__-__"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Сообщение</label>
                   <textarea
-                    id="message"
                     rows={5}
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-                    placeholder="Ваше сообщение"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    placeholder="Ваш вопрос или сообщение..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground py-3 rounded-md font-medium hover:bg-primary/90 transition-colors"
+                  className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
                 >
                   Отправить
+                  <Icon name="Send" size={18} />
                 </button>
               </form>
             </div>
           </div>
 
-          <div className="bg-card rounded-lg p-8 border border-border">
-            <h3 className="text-2xl font-bold mb-6">Как добраться</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <Icon name="Car" size={24} className="text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-bold mb-1">На автомобиле</h4>
-                  <p className="text-muted-foreground">
-                    Из Челябинска по трассе М5 в сторону Златоуста (130 км). Въезд в парк
-                    находится за городом по указателям.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Icon name="Train" size={24} className="text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-bold mb-1">На поезде</h4>
-                  <p className="text-muted-foreground">
-                    До станции Златоуст, затем автобусом или такси до центрального входа в
-                    парк (около 10 км).
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Icon name="Bus" size={24} className="text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-bold mb-1">На автобусе</h4>
-                  <p className="text-muted-foreground">
-                    Рейсовые автобусы Челябинск-Златоуст, затем местный транспорт до входа
-                    в парк.
-                  </p>
-                </div>
+          <div className="bg-card border border-border rounded-lg overflow-hidden">
+            <div className="aspect-video bg-muted flex items-center justify-center">
+              <div className="text-center">
+                <Icon name="Map" size={48} className="text-primary mx-auto mb-4" />
+                <p className="text-foreground/70">Карта расположения парка</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <footer className="bg-foreground text-background py-12 px-4">
+        <div className="container mx-auto max-w-6xl text-center">
+          <p className="text-sm opacity-80">
+            © 2024 Национальный парк Таганай. Все права защищены.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
